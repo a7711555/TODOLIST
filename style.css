@@ -1,0 +1,292 @@
+
+
+
+/* root */
+html, body {
+
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	max-height: 100vh;
+	background: #F2F2F2;
+	font-family: "微軟正黑體";
+	transition: background 1s ease;
+}
+
+/* define CSS variable */
+:root {
+
+	--base: #A2A2A2;
+
+}
+
+/* header */
+.header {
+
+	color: #ffffff;
+	background: #878787;
+	width: 100%;
+	text-align: center;
+}
+
+/* title setting */
+.header h1 {
+	margin: auto;
+
+}
+
+
+/*introduction to app*/
+.question {
+	height: 30px;
+	width: 30px;
+	padding: 1px;
+	position: relative;
+	top: 20px;
+	right: 20px;
+	float: right;
+	background: #2EA4FF;
+	border-radius: 50%;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.introduction-mask {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	background-color: #000000;
+	display: none;
+	z-index: 10;
+}
+
+.introduction {
+	position: fixed;
+	width: 500px;
+	top: 150px;
+	left: 50%;
+	transform: translate(-250px, 0px);
+	border: 1px solid #888888;
+	background-color: #eeeeee;
+	box-shadow: 0px 0px 10px #000000;
+	font-size: 24px;
+	display: none;
+	z-index: 12;
+	transition: opacity 0.5s;
+	line-height: 36px;
+}
+
+.introduction> .header {
+	width: 100%;
+	background-color: #444444;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.introduction> .header> .close {
+	float: right;
+	cursor: pointer;
+}
+
+.introduction> .content {
+	padding: 10px;
+}
+
+.introduction> .content> h3 {
+	text-align: center;
+}
+
+/* clock */
+.clock {
+	margin: 50px auto;
+	width: 20rem;
+	height: 20rem;
+	background: #fff url(ios_clock.svg) no-repeat center;
+	background-size: 90%;
+	border-radius: 50%;
+	position: relative;
+	border: 15px solid var(--base);
+	cursor: pointer;
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	transition: border-color 1s ease;
+}
+
+
+/* center point */
+.clock:after {
+	content: '';
+	width: 1rem;
+	height: 1rem;
+	background: #000;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 5;
+}
+
+
+/* create hand container above clock*/
+.hours-container, .minutes-container, .seconds-container {
+
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+
+/* animation */
+@keyframes rotate {
+	100% {
+
+		transform:rotateZ(360deg);
+
+	}
+}
+
+.hours-container {
+
+	animation: rotate 43200s infinite linear;
+
+}
+
+.minutes-container {
+
+	animation: rotate 3600s infinite steps(60);
+
+}
+
+.seconds-container {
+
+	animation: rotate 60s infinite steps(60);
+
+}
+
+
+
+/* create hands */
+
+.hours {
+	
+	width: 3%;
+	height: 20%;
+	background: #000;
+	transform-origin: 50% 100%;
+	position: absolute;
+	top: 30%;
+	left: 48.5%;
+}
+
+.minutes {
+
+	width: 2%;
+	height: 37%;
+	background: #000;
+	transform-origin: 50% 100%;
+	position: absolute;
+	top: 13%;
+	left: 49%;
+
+}
+
+.seconds {
+
+	width: 1%;
+	height: 40%;
+	background: #FF0000;
+	transform-origin: 50% 90%;
+	position: absolute;
+	top: 14.2%;
+	left: 49.5%;
+	z-index: 900;
+
+}
+
+
+/* header of list*/
+.add-list {
+	padding: 15px;
+	background: #888888;
+	text-align: center;
+}
+
+.enter {
+	margin: 0 auto;
+	padding: 5px;
+	width: 60%;
+	height: 30px;
+	font-size: 24px;
+	border-radius: 10px
+}
+
+.add-button {
+	margin: auto;
+	height: 40px;
+	font-size: 30px;
+	background: rgba(0, 0, 0, 0%);
+	border: none;
+	cursor: pointer;
+    display: inline-block;
+	outline: none;
+}
+
+.add-button:active { transform: translateY(2px); }
+
+
+
+/* to do list */
+
+.container {
+    margin: 40px auto;
+    width: 90%;
+    background: rgba(199, 199, 199, 50%);
+}
+
+.task {
+	padding: 0 1%;
+	margin: 0 auto;
+}
+
+.item {
+    padding: 13px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.delete {
+    float: right;
+}
+
+.delete-btn {
+    font-size: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+    line-height: 1;
+    display: none;
+}
+
+.delete-btn:active { 
+	transform: translateY(2px); 
+
+}
+
+.item:hover .delete-btn {
+	display: block; 
+
+}
+
+.item:nth-child(even) { 
+	background-color: rgba(247, 247, 247, 40%); 
+
+}
