@@ -1,3 +1,12 @@
+/* javascript for to do list 
+
+  Problem: deleted elements in doneTasks array is not deallocated.
+
+*/
+
+
+
+
 // =========== model ===========
 var model = (function() {
 
@@ -124,6 +133,7 @@ var view = (function(){
 		addBtn: '.add-button',
 		list: '.list',
 		container: '.container',
+		date: '.date',
 
 	};
 
@@ -248,7 +258,20 @@ var view = (function(){
 
 		},
 
-	}
+		displayDate: function() {
+
+			var now = new Date();
+
+			var year = now. getFullYear();
+			var month = now.getMonth() + 1;
+			var date = now.getDate();
+			var day = now.getDay();
+			document.querySelector(DOMstrings.date).textContent = year + ' 年 ' + month + ' 月 ' + date + ' 日 ';
+
+			
+		},
+
+	};
 
 })();
 
@@ -353,6 +376,7 @@ var controller = (function(m, v) {
 			
 			setupTime();
 			setupEventListener();
+			view.displayDate();
 
 		},
 
