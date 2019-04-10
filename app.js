@@ -80,28 +80,6 @@ var model = (function() {
 			data.doneTasks.push(id);
 
 			return data.doneTasks;
-
-
-			// get id array of alltasks
-			// var ids = data.allTasks.map(function(currentVal) {
-
-			// 	return currentVal.id;
-
-			// });
-
-
-			// id is not index of task, we need to get real index of the task
-			// convert id form string to decimal integer
-			// var index = ids.indexOf(parseInt(id, 10));
-
-
-			// check index exist or not
-			// if(index >= 0) {
-
-			// 	data.allTasks.splice(index, 1);
-			
-			// }
-
 		},
 
 		// to check the content of data
